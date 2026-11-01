@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabrielle Duldulao | Portfolio</title>
+<meta name="description" content="Portfolio of Gabrielle T. Duldulao, first-year Computer Science student at the University of the Cordilleras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/editor.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="ide">
+  <nav class="activity" aria-hidden="true">
+    <span class="on-wrap"><svg class="on" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg></span>
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg>
+    <svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="8" r="2"/><path d="M6 7v10M18 10c0 4-6 3-12 7"/></svg>
+    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><path d="m14 7 3-3 3 3-3 3z"/></svg>
+  </nav>
+
+  <aside class="explorer" aria-label="Pages">
+    <div class="ex-head">EXPLORER</div>
+    <div class="ex-folder">▾ GTD-PORTFOLIO</div>
+    <ul class="files">
+      <li><span class="item dir">▸ assets</span></li>
+      <li><a href="index.html" class="on" aria-current="page"><span class="ti">TS</span>gabrielle.ts</a></li>
+      <li><a href="education.html"><span class="ti">TS</span>education.ts<span class="badge" title="Next page">→</span></a></li>
+      <li><span class="item soon" title="Coming soon"><span class="ti">TS</span>achievements.ts</span></li>
+      <li><span class="item soon" title="Coming soon"><span class="ti">TS</span>family.ts</span></li>
+      <li><span class="item"><span class="ti">MD</span>README.md</span></li>
+    </ul>
+  </aside>
+
+  <main class="split">
+    <section class="pane" aria-hidden="true">
+      <div class="tabs"><span class="tab on">gabrielle.ts <span class="x">×</span></span></div>
+      <div class="crumbs">gtd-portfolio › gabrielle.ts › me</div>
+      <pre id="code"></pre>
+      <div class="term"><div class="label">Terminal</div><div><b>$</b> npm run dev</div><div><span class="ok">✓</span> compiled gabrielle.ts · 0 errors</div><div>➜ preview ready</div><div><b>$</b> next → education.ts <span class="c">(press →)</span></div></div>
+    </section>
+    <section class="pane">
+      <nav class="tabs" aria-label="Page tabs"><a class="tab on" href="index.html" aria-current="page">◫ gabrielle.ts</a><a class="tab" href="education.html">◫ education.ts</a><a class="tab next" href="education.html">next →</a></nav>
+      <iframe class="stage" data-src="blueprint/index.html" title="Preview of gabrielle.ts"></iframe>
+    </section>
+  </main>
+
+  <footer class="status">
+    <span>⎇ main</span><span>✓ 0 problems</span><span class="grow"></span>
+    <span>← → switch file</span><span id="pos">Ln 1, Col 1</span><span>UTF-8</span><span>TypeScript</span><span id="clock">--:--</span>
+    <button id="skip" type="button">Skip ⏭</button>
+  </footer>
+</div>
+
+<script src="assets/editor.js"></script>
+<script>
+startEditor([
+  ['<span class="c">// 01 — index</span>'],
+  ['<span class="k">const</span> me <span class="p">=</span> {'],
+  ['  name, course,', 'name'],
+  ['  stack: [<span class="s">"web"</span>, <span class="s">"game"</span>,'],
+  ['    <span class="s">"auto"</span>],', 'spec'],
+  ['  bio,', 'bio'],
+  ['};'],
+  ['<span class="k">render</span>(me);', 'course'],
+]);
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* shared look for the blueprint-grid pages */
+:root {
+  --bg: #fff;
+  --ink: #111;
+  --grey: #8a8a8a;
+  --line: #d4d4d4;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 4px; }
+
+.board { position: relative; height: 100vh; height: 100dvh; display: grid; }
+
+/* grid lines, drawn in by anime.js */
+.ln { position: absolute; background: var(--line); z-index: 2; pointer-events: none; }
+.ln.h { height: 1px; transform-origin: left; }
+.ln.v { width: 1px; transform-origin: top; }
+
+.cell { position: relative; padding: clamp(14px, 2vw, 28px); min-width: 0; min-height: 0; }
+.tag { position: absolute; top: 8px; right: 10px; font: 10px var(--mono); color: var(--line); }
+.label { font: 500 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--grey); }
+.label b { color: var(--ink); font-weight: 500; }
+
+/* top row: same on every page */
+.tl { grid-area: tl; display: flex; align-items: center; gap: 14px; }
+.mark { font: 700 15px var(--sans); border: 1.5px solid var(--ink); padding: 4px 7px; letter-spacing: .04em; }
+.tm { grid-area: tm; display: flex; align-items: center; }
+.tr { grid-area: tr; display: flex; align-items: center; justify-content: space-between; }
+
+.next { display: flex; align-items: baseline; justify-content: space-between; font: 700 clamp(18px, 1.9vw, 28px) var(--sans); letter-spacing: -.02em; }
+.next small { font: 500 11px var(--mono); letter-spacing: .12em; color: var(--grey); }
+.next .arrow { display: inline-block; transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.next:hover .arrow, .next:focus-visible .arrow { transform: translateX(8px); }
+.next.back:hover .arrow, .next.back:focus-visible .arrow { transform: translateX(-8px); }
+
+/* cursor crosshair (element injected by blueprint.js) */
+.cross { position: fixed; inset: 0; pointer-events: none; z-index: 5; opacity: 0; transition: opacity .3s; }
+.cross.on { opacity: 1; }
+.cross .x, .cross .y { position: absolute; background: rgba(17,17,17,.14); }
+.cross .x { left: 0; right: 0; height: 1px; }
+.cross .y { top: 0; bottom: 0; width: 1px; }
+.cross .xy { position: absolute; font: 10px var(--mono); color: var(--ink); background: var(--bg); padding: 1px 4px; white-space: nowrap; }
+@media (hover: none) { .cross { display: none; } }
+
+/* hidden start states, only when JS is running the intro */
+.js .ln.h { transform: scaleX(0); }
+.js .ln.v { transform: scaleY(0); }
+.js .fade { opacity: 0; }
+
+/* phones: stack and allow scroll (the no-scroll rule is for laptop viewing) */
+@media (max-width: 760px) {
+  body { overflow: auto; }
+  .board { height: auto; grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .ln, .tag { display: none; }
+  .cell { border-bottom: 1px solid var(--line); }
+  .tr { flex-direction: column; align-items: flex-end; justify-content: center; text-align: right; }
+}

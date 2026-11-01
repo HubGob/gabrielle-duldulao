@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabrielle Duldulao | Portfolio</title>
+<meta name="description" content="Portfolio of Gabrielle T. Duldulao, first-year Computer Science student at the University of the Cordilleras.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/blueprint.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+
+  .board {
+    grid-template-columns: 36fr 28fr 36fr;
+    grid-template-rows: 12fr 64fr 24fr;
+    grid-template-areas:
+      "tl tm tr"
+      "name name photo"
+      "bio links photo";
+  }
+
+
+  .name { grid-area: name; display: flex; flex-direction: column; justify-content: flex-end; }
+  .name h1 { font-weight: 700; font-size: clamp(48px, 9.2vw, 150px); line-height: .88; letter-spacing: -.045em; }
+  .name h1 span { display: block; overflow: hidden; padding-bottom: .04em; }
+  .name h1 i { display: block; font-style: normal; }
+  .name h1 .dot { color: var(--grey); font-style: normal; }
+  .spec { margin-top: clamp(16px, 2.4vh, 28px); }
+  .roles { margin-top: 4px; font: 500 clamp(12px, 1.05vw, 15px) var(--mono); letter-spacing: .14em; }
+  .roles .sep { color: var(--line); margin: 0 .6em; }
+
+  .photo { grid-area: photo; padding: 0; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(1) contrast(1.05); }
+  .photo .shutter { position: absolute; inset: 0; background: var(--bg); transform-origin: bottom; }
+  .photo figcaption { position: absolute; left: 14px; bottom: 12px; font: 10px var(--mono); letter-spacing: .12em; color: #fff; mix-blend-mode: difference; }
+
+  .bio { grid-area: bio; display: flex; align-items: center; }
+  .bio p { font-size: clamp(13px, 1.02vw, 15.5px); line-height: 1.55; color: #333; max-width: 42ch; }
+
+  .links { grid-area: links; display: flex; flex-direction: column; justify-content: space-between; }
+  .socials { display: flex; flex-direction: column; font: 500 12px var(--mono); letter-spacing: .1em; }
+  .socials a { position: relative; isolation: isolate; overflow: hidden; display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 8px; border-top: 1px solid var(--line); transition: color .35s; }
+  .socials a:last-child { border-bottom: 1px solid var(--line); }
+  /* black bar sweeps in from the left on hover, out to the right on leave */
+  .socials a::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--ink);
+    transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+  .socials a:hover, .socials a:focus-visible { color: var(--bg); }
+  .socials a:hover::before, .socials a:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+  .socials a { gap: 12px; white-space: nowrap; }
+  .socials .num { color: var(--grey); margin-right: 10px; }
+  .socials .handle { color: var(--grey); text-transform: none; font-size: clamp(9.5px, .8vw, 11px); letter-spacing: .02em; transition: color .35s; overflow: hidden; text-overflow: ellipsis; }
+  .socials a:hover .handle, .socials a:focus-visible .handle { color: var(--bg); }
+  .socials .go { display: inline-block; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .socials a:hover .go, .socials a:focus-visible .go { transform: translate(3px, -3px); }
+  .js .name h1 i { transform: translateY(110%); }
+
+  /* phones: stack and allow scroll (the no-scroll rule is for laptop viewing) */
+  @media (max-width: 760px) {
+    .board { grid-template-areas: "tl tr" "tm tm" "photo photo" "name name" "bio bio" "links links"; }
+    .photo { aspect-ratio: 3/4; }
+  }
+</style>
+</head>
+<body>
+<main class="board" id="board">
+  <div class="ln h" style="top:12%;left:0;width:100%"></div>
+  <div class="ln h" style="top:76%;left:0;width:64%"></div>
+  <div class="ln v" style="left:64%;top:0;height:100%"></div>
+  <div class="ln v" style="left:36%;top:0;height:12%"></div>
+  <div class="ln v" style="left:36%;top:76%;height:24%"></div>
+
+  <header class="cell tl fade">
+    <span class="mark">GTD</span>
+    <span class="label"><b>01</b> / Index</span>
+    <span class="tag">A1</span>
+  </header>
+  <div class="cell tm fade">
+    <span class="label">BS Computer Science · 1st Year · CITCS 1C</span>
+    <span class="tag">B1</span>
+  </div>
+  <div class="cell tr fade">
+    <span class="label">University of the Cordilleras</span>
+    <span class="label" id="clock" aria-label="Local time in Baguio">BGO --:--:--</span>
+    <span class="tag">C1</span>
+  </div>
+
+  <section class="cell name">
+    <h1><span><i>Gabrielle T.</i></span><span><i>Duldulao<em class="dot">.</em></i></span></h1>
+    <span class="label spec fade">Specialization</span>
+    <p class="roles fade" id="roles">WEB DEV<span class="sep">/</span>GAME DEV<span class="sep">/</span>AUTOMATION ENGINEER</p>
+    <span class="tag">A2</span>
+  </section>
+
+  <figure class="cell photo">
+    <img src="../assets/profile.jpg" alt="Portrait of Gabrielle Duldulao">
+    <div class="shutter"></div>
+    <figcaption class="fade">FIG. 01 — G.T.D.</figcaption>
+  </figure>
+
+  <div class="cell bio fade">
+    <p>I'm Gabrielle, a first-year Computer Science student at the University of the Cordilleras (CITCS 1C). I build for the web, make games, and automate anything I have to do twice. I like projects where the code disappears and only the experience is left.</p>
+    <span class="tag">A3</span>
+  </div>
+
+  <nav class="cell links fade" aria-label="Links">
+    <div class="socials">
+      <a href="https://github.com/HubGob" target="_blank" rel="noopener"><span><span class="num">01</span>GITHUB</span><span class="handle">@HubGob <span class="go">↗</span></span></a>
+      <a href="https://www.facebook.com/gabby.duldulao.16" target="_blank" rel="noopener"><span><span class="num">02</span>FACEBOOK</span><span class="handle">gabby.duldulao.16 <span class="go">↗</span></span></a>
+      <a href="mailto:gabrielle.duldulao.t@gmail.com" title="gabrielle.duldulao.t@gmail.com"><span><span class="num">03</span>EMAIL</span><span class="handle">gabrielle.duldulao.t@gmail.com <span class="go">↗</span></span></a>
+    </div>
+    <a class="next" href="education.html"><small>02 / NEXT</small><span>Education <span class="arrow">→</span></span></a>
+    <span class="tag">B3</span>
+  </nav>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="../assets/blueprint.js"></script>
+<script>
+(() => {
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const shutter = document.querySelector('.shutter');
+
+  // no anime.js (CDN down) or reduced motion: show the final state immediately
+  if (typeof anime === 'undefined' || reduced) {
+    root.classList.remove('js');
+    shutter.remove();
+  } else {
+    anime.timeline({ easing: 'cubicBezier(.2,.8,.2,1)' })
+      .add({ targets: '.ln.h', scaleX: [0, 1], duration: 900, delay: anime.stagger(140) })
+      .add({ targets: '.ln.v', scaleY: [0, 1], duration: 800, delay: anime.stagger(120) }, 250)
+      .add({ targets: '.name h1 i', translateY: ['110%', '0%'], duration: 900, delay: anime.stagger(120) }, 800)
+      .add({ targets: shutter, scaleY: [1, 0], duration: 1000, easing: 'cubicBezier(.7,0,.2,1)' }, 900)
+      .add({ targets: '.fade', opacity: [0, 1], translateY: [8, 0], duration: 600, delay: anime.stagger(70),
+             begin: scramble }, 1100);
+  }
+
+  // roles line types itself out through random glyphs
+  function scramble() {
+    const el = document.getElementById('roles');
+    const parts = [...el.childNodes].filter(n => n.nodeType === 3);
+    const finals = parts.map(n => n.textContent);
+    const glyphs = '01<>/{}#$%&*+=';
+    let frame = 0;
+    const tick = () => {
+      frame++;
+      parts.forEach((n, i) => {
+        const t = finals[i], shown = Math.floor(frame / 2);
+        n.textContent = [...t].map((c, j) => j < shown || c === ' ' ? c : glyphs[Math.random() * glyphs.length | 0]).join('');
+      });
+      if (frame < Math.max(...finals.map(t => t.length)) * 2) requestAnimationFrame(tick);
+      else parts.forEach((n, i) => n.textContent = finals[i]);
+    };
+    tick();
+  }
+})();
+</script>
+</body>
+</html>
