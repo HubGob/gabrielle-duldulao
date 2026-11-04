@@ -7,12 +7,6 @@
     tick(); setInterval(tick, 1000);
   }
 
-  // shown inside the code-editor variant's preview: page links switch the whole editor, not just the frame
-  if (self !== top) document.querySelectorAll('a[href$=".html"]').forEach(a => {
-    a.target = '_top';
-    const ide = { 'index.html': '../index.html', 'education.html': '../education.html' }[a.getAttribute('href')];
-    if (ide) a.href = ide;
-  });
 
   document.body.insertAdjacentHTML('beforeend',
     '<div class="cross" aria-hidden="true"><div class="x"></div><div class="y"></div><div class="xy"></div></div>');
