@@ -27,7 +27,7 @@
 
   .facts { grid-area: facts; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 0; padding-bottom: 0; }
   .facts dl { display: grid; }
-  .facts div { padding: clamp(12px, 2.2vh, 22px) 0; border-top: 1px solid var(--line); }
+  .facts div { padding: clamp(8px, 1.4vh, 16px) 0; border-top: 1px solid var(--line); }
   .facts dd { font: 500 clamp(15px, 1.35vw, 20px) var(--sans); letter-spacing: -.01em; margin-top: 4px; }
 
   .back { grid-area: back; display: flex; align-items: center; }
@@ -56,7 +56,6 @@
     <span class="tag">A1</span>
   </header>
   <div class="cell tm fade">
-    <span class="label">BS Computer Science · 1st Year · CITCS 1C</span>
     <span class="tag">B1</span>
   </div>
   <div class="cell tr fade">
@@ -69,8 +68,8 @@
     <span class="label">About me</span>
     <h1>I build for the web, make games, and automate anything I do <em>twice.</em></h1>
     <div class="bio">
-      <p>I'm Gabrielle, a first-year Computer Science student at the University of the Cordilleras. I grew up in Talavera, Nueva Ecija and moved to Baguio for school, where most of my free time goes into side projects.</p>
-      <p>My main one right now is Hireflow, a job-search workspace for Filipino job seekers: one place to track applications instead of a messy spreadsheet. I write it in TypeScript with Node, Express, Prisma and PostgreSQL, and test it with Vitest.</p>
+      <p>I'm Gabrielle. Most of my free time goes into side projects.</p>
+      <p>My main one right now is Hireflow, a job-search workspace for Filipino job seekers: one place to track applications instead of a messy spreadsheet.</p>
       <p>I like solving problems I actually have. If a task annoys me twice, I script it. I run Arch Linux, live in the terminal, and I'm always looking for people to build things with.</p>
     </div>
     <span class="tag">A2</span>
@@ -78,9 +77,11 @@
 
   <aside class="cell facts fade" aria-label="Quick facts">
     <dl>
-      <div><dt class="label">Studying</dt><dd>BS CS, University of the Cordilleras</dd></div>
+      <div><dt class="label">Studying</dt><dd>BS CS, University of the Cordilleras · 1st Year · CITCS 1C</dd></div>
+      <div><dt class="label">Born</dt><dd><time datetime="2008-09-30">September 30, 2008</time> · <span id="age">18</span> yrs old</dd></div>
       <div><dt class="label">Based in</dt><dd>Baguio City · from Talavera, Nueva Ecija</dd></div>
-      <div><dt class="label">Stack</dt><dd>TypeScript · Node · PostgreSQL</dd></div>
+      <div><dt class="label">Hobbies</dt><dd>Making games · Side projects · Linux ricing</dd></div>
+      <div><dt class="label">Skills</dt><dd>TypeScript · Node · Express · Prisma · PostgreSQL · Vitest · Linux</dd></div>
     </dl>
     <span class="tag">C2</span>
   </aside>
@@ -102,6 +103,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
 <script src="assets/blueprint.js"></script>
 <script>
+// keep age current without editing the page every birthday
+(() => {
+  const b = new Date(2008, 8, 30), n = new Date();
+  document.getElementById('age').textContent = n.getFullYear() - b.getFullYear() - (n < new Date(n.getFullYear(), 8, 30));
+})();
 (() => {
   // no anime.js (CDN down) or reduced motion: show the final state immediately
   if (typeof anime === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
