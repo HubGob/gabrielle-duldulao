@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Achievements | Gabrielle Duldulao</title>
+<meta name="description" content="Achievements of Gabrielle T. Duldulao: school press conference awards and Senior High graduation with High Honors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/blueprint.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  .board {
+    grid-template-columns: 36fr 28fr 36fr;
+    grid-template-rows: 12fr 70fr 18fr;
+    grid-template-areas:
+      "tl tm tr"
+      "wins wins wins"
+      "back prog home";
+  }
+
+  .wins { grid-area: wins; display: grid; grid-template-columns: repeat(3, 1fr); min-height: 0; }
+  .win { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px); }
+  /* photo takes whatever height is left so the page never scrolls */
+  .win figure { flex: 1; min-height: 0; overflow: hidden; margin: 4px 0 clamp(6px, 1.2vh, 12px); }
+  .win img { width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05); transition: filter .5s; }
+  .win:hover img { filter: none; }
+  .place { font: 500 clamp(18px, 1.9vw, 28px) var(--mono); letter-spacing: -.02em; }
+  .place .dash { color: var(--grey); margin: 0 .2em; }
+  .win h2 { font-weight: 700; font-size: clamp(14px, 1.25vw, 19px); line-height: 1.2; letter-spacing: -.01em; }
+  .win p { font-size: clamp(12px, .95vw, 14px); line-height: 1.45; color: #333; max-width: 48ch; }
+
+  .back { grid-area: back; display: flex; align-items: center; }
+  .prog { grid-area: prog; display: flex; align-items: center; }
+  .home { grid-area: home; display: flex; align-items: center; }
+  .home .next, .back .next { width: 100%; }
+  .back .next { justify-content: flex-start; gap: 18px; }
+
+  .js .win img { transform: scale(1.15); opacity: 0; }
+
+  @media (max-width: 760px) {
+    .board { grid-template-areas: "tl tr" "tm tm" "wins wins" "back home" "prog prog"; }
+    .wins { grid-template-columns: 1fr; }
+    .win figure { flex: none; aspect-ratio: 16/10; }
+  }
+</style>
+</head>
+<body>
+<main class="board">
+  <div class="ln h" style="top:12%;left:0;width:100%"></div>
+  <div class="ln h" style="top:82%;left:0;width:100%"></div>
+  <div class="ln v" style="left:36%;top:0;height:12%"></div>
+  <div class="ln v" style="left:64%;top:0;height:12%"></div>
+  <div class="ln v" style="left:33.333%;top:12%;height:70%"></div>
+  <div class="ln v" style="left:66.666%;top:12%;height:70%"></div>
+  <div class="ln v" style="left:36%;top:82%;height:18%"></div>
+  <div class="ln v" style="left:64%;top:82%;height:18%"></div>
+
+  <header class="cell tl fade">
+    <a class="mark" href="index.html" aria-label="Home">GTD</a>
+    <span class="label"><b>03</b> / Achievements</span>
+    <span class="tag">A1</span>
+  </header>
+  <div class="cell tm fade">
+    <span class="label">Campus journalism · Academics</span>
+    <span class="tag">B1</span>
+  </div>
+  <div class="cell tr fade">
+    <span class="label">Gabrielle T. Duldulao</span>
+    <span class="label" id="clock" aria-label="Local time in Baguio">BGO --:--:--</span>
+    <span class="tag">C1</span>
+  </div>
+
+  <section class="wins" aria-label="Achievements">
+    <article class="cell win">
+      <span class="label fade">2025 · Layout Artist</span><span class="tag">A2</span>
+      <figure><img src="assets/achievements/cd1spc-2025.jpg" alt="Team holding the Overall Champion plaque at the CD1SPC 2025"></figure>
+      <p class="place fade">1st<span class="dash">—</span>CD1SPC</p>
+      <h2 class="fade">Congressional District 1 School Press Conference</h2>
+      <p class="fade">Our team was named overall champion. As layout artist, I designed and arranged the pages of our publication.</p>
+    </article>
+    <article class="cell win">
+      <span class="label fade">2026 · Layout Artist</span><span class="tag">B2</span>
+      <figure><img src="assets/achievements/dspc-2026.jpg" alt="Talavera Senior High School team receiving certificates for 2nd place in Online Publishing at the DSPC 2026"></figure>
+      <p class="place fade">2nd<span class="dash">—</span>DSPC</p>
+      <h2 class="fade">Division School Press Conference</h2>
+      <p class="fade">Overall 2nd place in Online Publishing (English). I handled the layout, giving our online publication its look.</p>
+    </article>
+    <article class="cell win">
+      <span class="label fade"><b>2026 · Graduation</b></span><span class="tag">C2</span>
+      <figure><img src="assets/achievements/tshs-graduation.jpg" alt="Graduation card: Duldulao, Gabrielle Tolentino, STEM 12 Aurum, With High Honors" style="object-position:62% center"></figure>
+      <p class="place fade">With High Honors</p>
+      <h2 class="fade">Talavera Senior High School</h2>
+      <p class="fade">Graduated from the STEM strand, section 12 – Aurum, with High Honors.</p>
+    </article>
+  </section>
+
+  <nav class="cell back fade" aria-label="Previous page">
+    <a class="next back" href="about.html"><span><span class="arrow">←</span> Personal Information</span><small>02 / PREV</small></a>
+    <span class="tag">A3</span>
+  </nav>
+  <div class="cell prog fade">
+    <span class="label">3 highlights · hover a photo for color</span>
+    <span class="tag">B3</span>
+  </div>
+  <nav class="cell home fade" aria-label="Back to start">
+    <a class="next" href="index.html"><small>01 / START</small><span>Index <span class="arrow">→</span></span></a>
+    <span class="tag">C3</span>
+  </nav>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="assets/blueprint.js"></script>
+<script>
+(() => {
+  // no anime.js (CDN down) or reduced motion: show the final state immediately
+  if (typeof anime === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.remove('js'); return;
+  }
+  anime.timeline({ easing: 'cubicBezier(.2,.8,.2,1)' })
+    .add({ targets: '.ln.h', scaleX: [0, 1], duration: 900, delay: anime.stagger(140) })
+    .add({ targets: '.ln.v', scaleY: [0, 1], duration: 800, delay: anime.stagger(70) }, 200)
+    .add({ targets: '.win img', scale: [1.15, 1], opacity: [0, 1], duration: 900, delay: anime.stagger(150) }, 700)
+    .add({ targets: '.fade', opacity: [0, 1], translateY: [8, 0], duration: 600, delay: anime.stagger(30) }, 900);
+})();
+</script>
+</body>
+</html>
