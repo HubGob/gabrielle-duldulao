@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About | Gabrielle Duldulao</title>
-<meta name="description" content="About Gabrielle T. Duldulao, first-year Computer Science student at the University of the Cordilleras.">
+<title>Personal Information | Gabrielle Duldulao</title>
+<meta name="description" content="Personal information of Gabrielle T. Duldulao, first-year Computer Science student at the University of the Cordilleras.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -23,7 +23,9 @@
   .intro { grid-area: intro; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(14px, 2.4vh, 26px); }
   .intro h1 { font-weight: 700; font-size: clamp(30px, min(3.8vw, 7vh), 64px); line-height: .95; letter-spacing: -.04em; max-width: 14ch; }
   .intro h1 em { font-style: normal; color: var(--grey); }
-  .intro .bio { display: grid; gap: .8em; max-width: 62ch; font-size: clamp(14px, 1.15vw, 17px); line-height: 1.55; color: #333; }
+  .info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2vh, 22px) clamp(14px, 2vw, 28px); max-width: 900px; }
+  .info div { border-top: 1px solid var(--line); padding-top: 8px; }
+  .info dd { font: 500 clamp(14px, 1.25vw, 19px) var(--sans); letter-spacing: -.01em; margin-top: 4px; overflow-wrap: anywhere; }
 
   .facts { grid-area: facts; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 0; padding-bottom: 0; }
   .facts dl { display: grid; }
@@ -39,6 +41,7 @@
   @media (max-width: 760px) {
     .board { grid-template-areas: "tl tr" "tm tm" "intro intro" "facts facts" "back mail" "prog prog"; }
     .intro { min-height: 50vh; }
+    .info { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -52,7 +55,7 @@
 
   <header class="cell tl fade">
     <a class="mark" href="index.html" aria-label="Home">GTD</a>
-    <span class="label"><b>02</b> / About</span>
+    <span class="label"><b>02</b> / Personal Information</span>
     <span class="tag">A1</span>
   </header>
   <div class="cell tm fade">
@@ -65,21 +68,22 @@
   </div>
 
   <section class="cell intro fade">
-    <span class="label">About me</span>
-    <h1>I build for the web, make games, and automate anything I do <em>twice.</em></h1>
-    <div class="bio">
-      <p>I'm Gabrielle. Most of my free time goes into side projects.</p>
-      <p>My main one right now is Hireflow, a job-search workspace for Filipino job seekers: one place to track applications instead of a messy spreadsheet.</p>
-      <p>I like solving problems I actually have. If a task annoys me twice, I script it. I run Arch Linux, live in the terminal, and I'm always looking for people to build things with.</p>
-    </div>
+    <span class="label">Personal Information</span>
+    <h1>Gabrielle Tolentino <em>Duldulao.</em></h1>
+    <dl class="bio info">
+      <div><dt class="label">Birthday</dt><dd><time datetime="2008-09-30">September 30, 2008</time></dd></div>
+      <div><dt class="label">Age</dt><dd><span id="age">18</span> years old</dd></div>
+      <div><dt class="label">Civil status</dt><dd>Single</dd></div>
+      <div><dt class="label">Hometown</dt><dd>Talavera, Nueva Ecija</dd></div>
+      <div><dt class="label">Currently in</dt><dd>Baguio City</dd></div>
+      <div style="grid-column:1/-1"><dt class="label">Email</dt><dd>gabrielle.duldulao.t@gmail.com</dd></div>
+    </dl>
     <span class="tag">A2</span>
   </section>
 
   <aside class="cell facts fade" aria-label="Quick facts">
     <dl>
       <div><dt class="label">Studying</dt><dd>BS CS, University of the Cordilleras · 1st Year · CITCS 1C</dd></div>
-      <div><dt class="label">Born</dt><dd><time datetime="2008-09-30">September 30, 2008</time> · <span id="age">18</span> yrs old</dd></div>
-      <div><dt class="label">Based in</dt><dd>Baguio City · from Talavera, Nueva Ecija</dd></div>
       <div><dt class="label">Hobbies</dt><dd>Making games · Side projects · Linux ricing</dd></div>
       <div><dt class="label">Skills</dt><dd>TypeScript · Node · Express · Prisma · PostgreSQL · Vitest · Linux</dd></div>
     </dl>
@@ -91,11 +95,10 @@
     <span class="tag">A3</span>
   </nav>
   <div class="cell prog fade">
-    <span class="label">More pages soon</span>
     <span class="tag">B3</span>
   </div>
-  <nav class="cell mail fade" aria-label="Contact">
-    <a class="next" href="mailto:gabrielle.duldulao.t@gmail.com"><small>SAY HI</small><span>Email me <span class="arrow">→</span></span></a>
+  <nav class="cell mail fade" aria-label="Next page">
+    <a class="next" href="achievements.html"><small>03 / NEXT</small><span>Achievements <span class="arrow">→</span></span></a>
     <span class="tag">C3</span>
   </nav>
 </main>
