@@ -29,6 +29,7 @@
 
   .facts { grid-area: facts; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 0; padding-bottom: 0; }
   .facts dl { display: grid; }
+  .portrait { flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: center 30%; margin: clamp(14px, 2vw, 28px) 0 clamp(10px, 1.6vh, 18px); filter: grayscale(1); }
   .facts div { padding: clamp(8px, 1.4vh, 16px) 0; border-top: 1px solid var(--line); }
   .facts dd { font: 500 clamp(15px, 1.35vw, 20px) var(--sans); letter-spacing: -.01em; margin-top: 4px; }
 
@@ -41,6 +42,7 @@
   @media (max-width: 760px) {
     .board { grid-template-areas: "tl tr" "tm tm" "intro intro" "facts facts" "back mail" "prog prog"; }
     .intro { min-height: 50vh; }
+    .portrait { flex: none; aspect-ratio: 3/4; }
     .info { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -82,6 +84,7 @@
   </section>
 
   <aside class="cell facts fade" aria-label="Quick facts">
+    <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Gabrielle Duldulao in a suit">
     <dl>
       <div><dt class="label">Studying</dt><dd>BS CS, University of the Cordilleras · 1st Year · CITCS 1C</dd></div>
       <div><dt class="label">Hobbies</dt><dd>Making games · Side projects · Linux ricing</dd></div>
