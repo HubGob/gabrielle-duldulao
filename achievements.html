@@ -28,6 +28,16 @@
   .win ul { list-style: none; font-size: clamp(12px, .95vw, 14px); line-height: 1.45; color: #333; }
   .win ul b { color: var(--ink); }
   .win .logo img { object-fit: contain; padding: 12%; }
+  /* photo stack: one pane open at a time; hover or tab to another to expand it */
+  .stack { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 3px; margin: 4px 0 clamp(6px, 1.2vh, 12px); }
+  .pane { flex: 1; min-height: 0; position: relative; overflow: hidden; background: #f2f2f2; cursor: zoom-in;
+    transition: flex .5s cubic-bezier(.2,.8,.2,1); }
+  .pane span { position: absolute; left: 0; bottom: 0; padding: 4px 8px; font: 500 10px var(--mono); letter-spacing: .08em;
+    text-transform: uppercase; background: var(--ink); color: var(--bg); opacity: 0; transition: opacity .3s; }
+  /* :focus (not :focus-visible) so a tap on phones keeps the pane open */
+  .pane:hover, .pane:focus, .stack:not(:hover):not(:focus-within) .pane:first-child { flex: 7; outline: none; }
+  .pane:hover img, .pane:focus img, .stack:not(:hover):not(:focus-within) .pane:first-child img { object-fit: contain; filter: none; }
+  .pane:hover span, .pane:focus span, .stack:not(:hover):not(:focus-within) .pane:first-child span { opacity: 1; }
   .win { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px); }
   /* photo takes whatever height is left so the page never scrolls */
   .win figure { flex: 1; min-height: 0; overflow: hidden; margin: 4px 0 clamp(6px, 1.2vh, 12px); }
@@ -51,6 +61,7 @@
     .board { grid-template-areas: "tl tr" "tm tm" "wins wins" "back home" "prog prog"; }
     .wins { grid-template-columns: 1fr; }
     .win figure { flex: none; aspect-ratio: 16/10; }
+    .stack { flex: none; height: 75vh; }
   }
 </style>
 </head>
@@ -86,7 +97,12 @@
       <span class="label fade">Elementary</span><span class="tag">A2</span>
       <div class="track" aria-hidden="true"></div>
       <p class="place fade">2012<span class="dash">—</span>2020</p>
-      <figure><img src="assets/timeline/elementary.jpg" alt="Schola Christi grade school graduation photo and certificate"></figure>
+      <div class="stack">
+        <div class="pane" tabindex="0"><img src="assets/timeline/grade-photo.jpg" alt="Grade school graduation photo"><span>Grade school graduation</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/grade-diploma.jpg" alt="Schola Christi grade school certificate"><span>Grade school certificate</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/preschool-photo.jpg" alt="Preschool graduation photo"><span>Preschool graduation</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/preschool-cert.jpg" alt="Schola Christi preschool certificate of completion"><span>Preschool certificate</span></div>
+      </div>
       <h2 class="fade">Schola Christi Inc.</h2>
       <ul class="fade"><li>Completed grade school</li></ul>
     </article>
@@ -94,7 +110,9 @@
       <span class="label fade">Junior High School</span><span class="tag">B2</span>
       <div class="track" aria-hidden="true"></div>
       <p class="place fade">2020<span class="dash">—</span>2024</p>
-      <figure><img src="assets/timeline/jhs.jpg" alt="Talavera National High School junior high completion certificate"></figure>
+      <div class="stack">
+        <div class="pane" tabindex="0"><img src="assets/timeline/jhs.jpg" alt="Talavera National High School junior high completion certificate"><span>JHS certificate</span></div>
+      </div>
       <h2 class="fade">Talavera National High School</h2>
       <ul class="fade"><li>Completed junior high school</li></ul>
     </article>
@@ -102,7 +120,15 @@
       <span class="label fade">Senior High School · STEM</span><span class="tag">C2</span>
       <div class="track" aria-hidden="true"></div>
       <p class="place fade">2024<span class="dash">—</span>2026</p>
-      <figure><img src="assets/achievements/tshs-graduation.jpg" alt="Graduation card: Duldulao, Gabrielle Tolentino, STEM 12 Aurum, With High Honors" style="object-position:62% center"></figure>
+      <div class="stack">
+        <div class="pane" tabindex="0"><img src="assets/achievements/tshs-graduation.jpg" alt="Graduation card: Duldulao, Gabrielle Tolentino, STEM 12 Aurum, With High Honors"><span>Graduation · With High Honors</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/academic-excellence.jpg" alt="Academic Excellence Award, With High Honors, 2025–2026"><span>Academic Excellence Award</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/shs-diploma.jpg" alt="Talavera Senior High School diploma"><span>SHS diploma</span></div>
+        <div class="pane" tabindex="0"><img src="assets/achievements/cd1spc-2025.jpg" alt="Team holding the Overall Champion plaque at the CD1SPC 2025"><span>CD1SPC 2025 · Overall champion</span></div>
+        <div class="pane" tabindex="0"><img src="assets/achievements/dspc-2026.jpg" alt="Team receiving certificates for 2nd place in Online Publishing at the DSPC 2026"><span>DSPC 2026 · 2nd Online Publishing</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/cd1spc-2026.jpg" alt="Certificate of Recognition, 3rd place Online Publishing (English), CD1SPC 2026"><span>CD1SPC 2026 · 3rd Online Publishing</span></div>
+        <div class="pane" tabindex="0"><img src="assets/timeline/sports-writing-2024.jpg" alt="Certificate of Recognition, 3rd place Sports Writing (English), school press conference 2024"><span>School press con 2024 · 3rd Sports Writing</span></div>
+      </div>
       <h2 class="fade">Talavera Senior High School</h2>
       <ul class="fade">
         <li><b>With High Honors</b> · STEM 12 – Aurum</li>
@@ -125,7 +151,7 @@
     <span class="tag">A3</span>
   </nav>
   <div class="cell prog fade">
-    <span class="label">4 schools · 2012 → now · hover a photo for color</span>
+    <span class="label">4 schools · 2012 → now · hover a photo to expand</span>
     <span class="tag">B3</span>
   </div>
   <nav class="cell home fade" aria-label="Next page">
