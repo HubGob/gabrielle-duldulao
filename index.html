@@ -32,7 +32,7 @@
   .roles .sep { color: var(--line); margin: 0 .6em; }
 
   .photo { grid-area: photo; padding: 0; overflow: hidden; }
-  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(1) contrast(1.05); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; display: block; filter: grayscale(1) contrast(1.05); }
   .photo .shutter { position: absolute; inset: 0; background: var(--bg); transform-origin: bottom; }
   .photo figcaption { position: absolute; left: 14px; bottom: 12px; font: 10px var(--mono); letter-spacing: .12em; color: #fff; mix-blend-mode: difference; }
 
@@ -47,6 +47,8 @@
     transform: scaleX(0); transform-origin: right; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
   .socials a:hover, .socials a:focus-visible { color: var(--bg); }
   .socials a:hover::before, .socials a:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+  .pages { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2vw, 28px); }
+  .pages .next { flex-direction: column; gap: 4px; font-size: clamp(15px, 1.5vw, 22px); border-top: 1.5px solid var(--ink); padding-top: 8px; }
   .socials a { gap: 12px; white-space: nowrap; }
   .socials .num { color: var(--grey); margin-right: 10px; }
   .socials .handle { color: var(--grey); text-transform: none; font-size: clamp(9.5px, .8vw, 11px); letter-spacing: .02em; transition: color .35s; overflow: hidden; text-overflow: ellipsis; }
@@ -91,7 +93,7 @@
   </section>
 
   <figure class="cell photo">
-    <img src="assets/profile.jpg" alt="Portrait of Gabrielle Duldulao">
+    <img src="assets/profile.jpg" alt="Gabrielle Duldulao in business attire, full length">
     <div class="shutter"></div>
     <figcaption class="fade">FIG. 01 — G.T.D.</figcaption>
   </figure>
@@ -103,7 +105,11 @@
       <a href="https://www.facebook.com/gabby.duldulao.16" target="_blank" rel="noopener"><span><span class="num">02</span>FACEBOOK</span><span class="handle">gabby.duldulao.16 <span class="go">↗</span></span></a>
       <a href="mailto:gabrielle.duldulao.t@gmail.com" title="gabrielle.duldulao.t@gmail.com"><span><span class="num">03</span>EMAIL</span><span class="handle">gabrielle.duldulao.t@gmail.com <span class="go">↗</span></span></a>
     </div>
-    <a class="next" href="about.html"><small>02 / NEXT</small><span>Personal Information <span class="arrow">→</span></span></a>
+    <div class="pages">
+      <a class="next" href="about.html"><small>02</small><span>Personal Information <span class="arrow">→</span></span></a>
+      <a class="next" href="achievements.html"><small>03</small><span>Achievements <span class="arrow">→</span></span></a>
+      <a class="next" href="family.html"><small>04</small><span>Family &amp; Friends <span class="arrow">→</span></span></a>
+    </div>
     <span class="tag">B3</span>
   </nav>
 </main>

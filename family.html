@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family &amp; Friends | Gabrielle Duldulao</title>
+<meta name="description" content="The family and friends of Gabrielle T. Duldulao.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/blueprint.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+  .board {
+    grid-template-columns: 36fr 28fr 36fr;
+    grid-template-rows: 12fr 70fr 18fr;
+    grid-template-areas:
+      "tl tm tr"
+      "ppl ppl ppl"
+      "back prog home";
+  }
+
+  .ppl { grid-area: ppl; display: grid; grid-template-columns: repeat(4, 1fr); min-height: 0; }
+  .person { display: flex; flex-direction: column; gap: clamp(6px, 1vh, 10px); }
+  /* photo takes whatever height is left so the page never scrolls */
+  .person figure { flex: 1; min-height: 0; overflow: hidden; margin: 4px 0 clamp(6px, 1.2vh, 12px); }
+  .person img { width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(1.05); transition: filter .5s; }
+  .person:hover img { filter: none; }
+  .person h2 { font: 500 clamp(18px, 1.9vw, 28px) var(--mono); letter-spacing: -.02em; }
+  .person p { font-size: clamp(12px, .95vw, 14px); line-height: 1.45; color: #333; max-width: 44ch; min-height: 5.8em; /* 4 lines, so all photos end level */ }
+
+  .back { grid-area: back; display: flex; align-items: center; }
+  .prog { grid-area: prog; display: flex; align-items: center; }
+  .home { grid-area: home; display: flex; align-items: center; }
+  .home .next, .back .next { width: 100%; }
+  .back .next { justify-content: flex-start; gap: 18px; }
+
+  .js .person img { transform: scale(1.15); opacity: 0; }
+
+  @media (max-width: 760px) {
+    .board { grid-template-areas: "tl tr" "tm tm" "ppl ppl" "back home" "prog prog"; }
+    .ppl { grid-template-columns: 1fr; }
+    .person figure { flex: none; aspect-ratio: 4/5; }
+  }
+</style>
+</head>
+<body>
+<main class="board">
+  <div class="ln h" style="top:12%;left:0;width:100%"></div>
+  <div class="ln h" style="top:82%;left:0;width:100%"></div>
+  <div class="ln v" style="left:36%;top:0;height:12%"></div>
+  <div class="ln v" style="left:64%;top:0;height:12%"></div>
+  <div class="ln v" style="left:25%;top:12%;height:70%"></div>
+  <div class="ln v" style="left:50%;top:12%;height:70%"></div>
+  <div class="ln v" style="left:75%;top:12%;height:70%"></div>
+  <div class="ln v" style="left:36%;top:82%;height:18%"></div>
+  <div class="ln v" style="left:64%;top:82%;height:18%"></div>
+
+  <header class="cell tl fade">
+    <a class="mark" href="index.html" aria-label="Home">GTD</a>
+    <span class="label"><b>04</b> / Family &amp; Friends</span>
+    <span class="tag">A1</span>
+  </header>
+  <div class="cell tm fade">
+    <span class="label">The people behind me</span>
+    <span class="tag">B1</span>
+  </div>
+  <div class="cell tr fade">
+    <span class="label">Gabrielle T. Duldulao</span>
+    <span class="label" id="clock" aria-label="Local time in Baguio">BGO --:--:--</span>
+    <span class="tag">C1</span>
+  </div>
+
+  <section class="ppl" aria-label="Family and friends">
+    <article class="cell person">
+      <span class="label fade">01 · Mother</span><span class="tag">A2</span>
+      <figure><img src="assets/family/mother.jpg" alt="Gabrielle hugging Mom"></figure>
+      <h2 class="fade">Mom</h2>
+      <p class="fade">Her love is the first thing I ever knew. Through every late night and every hard day, she has never stopped believing in me and supporting every step I take.</p>
+    </article>
+    <article class="cell person">
+      <span class="label fade">02 · Father</span><span class="tag">B2</span>
+      <figure><img src="assets/family/father.jpg" alt="Gabrielle shaking hands with Dad"></figure>
+      <h2 class="fade">Dad</h2>
+      <p class="fade">My protector. He has always stood between our family and the world's troubles, working hard so we could feel safe and never go without.</p>
+    </article>
+    <article class="cell person">
+      <span class="label fade">03 · Sibling</span><span class="tag">C2</span>
+      <figure><img src="assets/family/sibling.jpg" alt="Selfie of Gabrielle and a sibling on a bus" style="object-position:center 35%"></figure>
+      <h2 class="fade">Sibling</h2>
+      <p class="fade">My built-in support system. Whether it is a long ride or a long week, they are always there to cheer me on and keep me going.</p>
+    </article>
+    <article class="cell person">
+      <span class="label fade">04 · Friends</span><span class="tag">D2</span>
+      <figure><img src="assets/family/friends.jpg" alt="Gabrielle with friends at graduation"></figure>
+      <h2 class="fade">Friends</h2>
+      <p class="fade">The ones who made school fun. Here's to every laugh and every win we shared.</p>
+    </article>
+  </section>
+
+  <nav class="cell back fade" aria-label="Previous page">
+    <a class="next back" href="achievements.html"><span><span class="arrow">←</span> Achievements</span><small>03 / PREV</small></a>
+    <span class="tag">A3</span>
+  </nav>
+  <div class="cell prog fade">
+    <span class="label">4 photos · hover a photo for color</span>
+    <span class="tag">B3</span>
+  </div>
+  <nav class="cell home fade" aria-label="Back to start">
+    <a class="next" href="index.html"><small>01 / START</small><span>Index <span class="arrow">→</span></span></a>
+    <span class="tag">C3</span>
+  </nav>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+<script src="assets/blueprint.js"></script>
+<script>
+(() => {
+  // no anime.js (CDN down) or reduced motion: show the final state immediately
+  if (typeof anime === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.remove('js'); return;
+  }
+  anime.timeline({ easing: 'cubicBezier(.2,.8,.2,1)' })
+    .add({ targets: '.ln.h', scaleX: [0, 1], duration: 900, delay: anime.stagger(140) })
+    .add({ targets: '.ln.v', scaleY: [0, 1], duration: 800, delay: anime.stagger(70) }, 200)
+    .add({ targets: '.person img', scale: [1.15, 1], opacity: [0, 1], duration: 900, delay: anime.stagger(150) }, 700)
+    .add({ targets: '.fade', opacity: [0, 1], translateY: [8, 0], duration: 600, delay: anime.stagger(30) }, 900);
+})();
+</script>
+</body>
+</html>
