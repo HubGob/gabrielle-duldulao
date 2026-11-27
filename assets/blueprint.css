@@ -31,6 +31,11 @@ a:focus-visible { outline: 1.5px solid var(--ink); outline-offset: 4px; }
 .tm { grid-area: tm; display: flex; align-items: center; }
 .tr { grid-area: tr; display: flex; align-items: center; justify-content: space-between; }
 
+/* site nav, lives in the top-middle cell on every page */
+.nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font: 500 clamp(10px, .85vw, 12px) var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.nav a { color: var(--grey); padding: 3px 0; border-bottom: 1.5px solid transparent; transition: color .2s, border-color .2s; }
+.nav a:hover, .nav a:focus-visible, .nav a[aria-current] { color: var(--ink); border-color: var(--ink); }
+
 .next { display: flex; align-items: baseline; justify-content: space-between; font: 700 clamp(18px, 1.9vw, 28px) var(--sans); letter-spacing: -.02em; }
 .next small { font: 500 11px var(--mono); letter-spacing: .12em; color: var(--grey); }
 .next .arrow { display: inline-block; transition: transform .3s cubic-bezier(.2,.8,.2,1); }

@@ -21,11 +21,18 @@
   }
 
   .intro { grid-area: intro; display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(14px, 2.4vh, 26px); }
-  .intro h1 { font-weight: 700; font-size: clamp(30px, min(3.8vw, 7vh), 64px); line-height: .95; letter-spacing: -.04em; max-width: 14ch; }
+  .intro { gap: clamp(8px, 1.6vh, 18px); }
+  .intro h1 { font-weight: 700; font-size: clamp(26px, min(3.2vw, 6vh), 52px); line-height: .95; letter-spacing: -.04em; }
   .intro h1 em { font-style: normal; color: var(--grey); }
-  .info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2vh, 22px) clamp(14px, 2vw, 28px); max-width: 900px; }
-  .info div { border-top: 1px solid var(--line); padding-top: 8px; }
-  .info dd { font: 500 clamp(14px, 1.25vw, 19px) var(--sans); letter-spacing: -.01em; margin-top: 4px; overflow-wrap: anywhere; }
+  /* 5 columns so ~35 fields fit one screen with no scroll and no tabs; .w2/.w3 widen long values */
+  .info { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-flow: dense; gap: clamp(5px, 1.1vh, 12px) clamp(10px, 1.4vw, 20px); }
+  .info div { border-top: 1px solid var(--line); padding-top: 4px; min-width: 0; }
+  .info .w2 { grid-column: span 2; }
+  .info .w3 { grid-column: span 3; }
+  .info dt { font-size: 9px; line-height: 1.3; letter-spacing: .1em; }
+  .info dd { font: 500 clamp(11px, .95vw, 14px)/1.25 var(--sans); letter-spacing: -.01em; margin-top: 2px; overflow-wrap: anywhere; }
+  .info a { border-bottom: 1px solid var(--line); }
+  .info a:hover { border-color: var(--ink); }
 
   .facts { grid-area: facts; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 0; padding-bottom: 0; }
   .facts dl { display: grid; }
@@ -38,6 +45,13 @@
   .mail { grid-area: mail; display: flex; align-items: center; }
   .mail .next, .back .next { width: 100%; }
   .back .next { justify-content: flex-start; gap: 18px; }
+
+  @media (max-height: 700px) and (min-width: 761px) {
+    .intro > .label { display: none; }
+    .intro h1 { font-size: clamp(22px, 4.6vh, 40px); }
+    .info { gap: 4px clamp(10px, 1.4vw, 20px); }
+    .info div { padding-top: 3px; }
+  }
 
   @media (max-width: 760px) {
     .board { grid-template-areas: "tl tr" "tm tm" "intro intro" "facts facts" "back mail" "prog prog"; }
@@ -61,6 +75,7 @@
     <span class="tag">A1</span>
   </header>
   <div class="cell tm fade">
+    <nav class="nav" aria-label="Main"><a href="about.html" aria-current="page">Personal Info</a><a href="achievements.html">Achievements</a><a href="family.html">Family &amp; Friends</a></nav>
     <span class="tag">B1</span>
   </div>
   <div class="cell tr fade">
@@ -73,12 +88,40 @@
     <span class="label">Personal Information</span>
     <h1>Gabrielle Tolentino <em>Duldulao.</em></h1>
     <dl class="bio info">
-      <div><dt class="label">Birthday</dt><dd><time datetime="2008-09-30">September 30, 2008</time></dd></div>
+      <div><dt class="label">Nickname</dt><dd>Gab</dd></div>
+      <div><dt class="label">Gender</dt><dd>Male</dd></div>
       <div><dt class="label">Age</dt><dd><span id="age">18</span> years old</dd></div>
+      <div class="w2"><dt class="label">Birthday</dt><dd><time datetime="2008-09-30">September 30, 2008</time></dd></div>
+      <div><dt class="label">Zodiac sign</dt><dd>Libra</dd></div>
+      <div><dt class="label">Blood type</dt><dd>B+</dd></div>
+      <div><dt class="label">Height</dt><dd>6'0" (183 cm)</dd></div>
+      <div><dt class="label">Weight</dt><dd>81 kg</dd></div>
       <div><dt class="label">Civil status</dt><dd>Single</dd></div>
-      <div><dt class="label">Hometown</dt><dd>Talavera, Nueva Ecija</dd></div>
+      <div><dt class="label">Citizenship</dt><dd>Filipino</dd></div>
+      <div><dt class="label">Religion</dt><dd>Roman Catholic</dd></div>
+      <div><dt class="label">Languages</dt><dd>Filipino, English</dd></div>
+      <div><dt class="label">Birth order</dt><dd>2nd</dd></div>
+      <div><dt class="label">Place of birth</dt><dd>Cabanatuan City</dd></div>
+      <div class="w2"><dt class="label">Hometown</dt><dd>Talavera, Nueva Ecija</dd></div>
       <div><dt class="label">Currently in</dt><dd>Baguio City</dd></div>
-      <div style="grid-column:1/-1"><dt class="label">Email</dt><dd>gabrielle.duldulao.t@gmail.com</dd></div>
+      <div class="w2"><dt class="label">Home address</dt><dd>Andal Alino, Talavera, Nueva Ecija</dd></div>
+      <div class="w2"><dt class="label">Father</dt><dd>Guillermo Duldulao · 55</dd></div>
+      <div class="w2"><dt class="label">Mother</dt><dd>Eleonor Duldulao · 51</dd></div>
+      <div><dt class="label">Sibling</dt><dd>Jasmin Duldulao · 19</dd></div>
+      <div class="w2"><dt class="label">Email</dt><dd><a href="mailto:gabrielle.duldulao.t@gmail.com">gabrielle.duldulao.t@gmail.com</a></dd></div>
+      <div><dt class="label">Phone</dt><dd><a href="tel:09279748559">0927 974 8559</a></dd></div>
+      <div><dt class="label">GitHub</dt><dd><a href="https://github.com/HubGob" target="_blank" rel="noopener">@HubGob</a></dd></div>
+      <div><dt class="label">Facebook</dt><dd><a href="https://www.facebook.com/gabby.duldulao.16" target="_blank" rel="noopener">gabby.duldulao.16</a></dd></div>
+      <div><dt class="label">Dream job</dt><dd>Software engineer</dd></div>
+      <div><dt class="label">Favorite food</dt><dd>Adobo</dd></div>
+      <div><dt class="label">Favorite color</dt><dd>Black</dd></div>
+      <div><dt class="label">Favorite game</dt><dd>Until Then</dd></div>
+      <div><dt class="label">Pets</dt><dd>None</dd></div>
+      <div class="w3"><dt class="label">Favorite music</dt><dd>Kundiman · Silent Sanctuary</dd></div>
+      <div class="w2"><dt class="label">Motto</dt><dd>Build it, break it, learn from it.</dd></div>
+      <div class="w2"><dt class="label">Goal in 5 years</dt><dd>Work as a software engineer shipping real products</dd></div>
+      <div class="w2"><dt class="label">Strengths</dt><dd>Fast learner, problem solver, detail-oriented</dd></div>
+      <div><dt class="label">Weakness</dt><dd>Overthinking small details</dd></div>
     </dl>
     <span class="tag">A2</span>
   </section>
@@ -87,7 +130,7 @@
     <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Gabrielle Duldulao in a suit">
     <dl>
       <div><dt class="label">Studying</dt><dd>BS CS, University of the Cordilleras · 1st Year · CITCS 1C</dd></div>
-      <div><dt class="label">Hobbies</dt><dd>Making games · Side projects · Linux ricing</dd></div>
+      <div><dt class="label">Hobbies</dt><dd>Coding · Watching and reading literature · Making games · Side projects · Linux ricing</dd></div>
       <div><dt class="label">Skills</dt><dd>TypeScript · Node · Express · Prisma · PostgreSQL · Vitest · Linux</dd></div>
     </dl>
     <span class="tag">C2</span>
